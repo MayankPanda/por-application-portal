@@ -1,0 +1,56 @@
+.Tile
+{
+    display: flex;
+    flex-direction: row;
+    background-color: snow;
+    color: black;
+    width: 80%;
+    height: 30%;
+    border-radius: 3px;
+
+}
+.tile-info
+{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+.tile-apply-sec
+{
+    display: flex;
+    width: 30%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.apply-btn
+{
+    height: 30%;
+    width: 40%;
+    border-radius: 10px;
+    background-color: green;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+a:link {
+    text-decoration: none;
+    color: white;
+}
+
+a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+a:active {
+    text-decoration: none;
+    color: white;
+}
