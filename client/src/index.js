@@ -5,12 +5,14 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Open_POR_Tile from './open_por_tile';
 import Applied_POR_Tile from './applied_por_tile';
+import Student_Login_Page from './studentloginpage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     {/* <Open_POR_Tile/> */}
-    <Applied_POR_Tile/>
+    {/* <Applied_POR_Tile/> */}
+    <Student_Login_Page/>
   </React.StrictMode>
 );
 
