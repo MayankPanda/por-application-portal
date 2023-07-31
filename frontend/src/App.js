@@ -4,6 +4,7 @@ import {BrowserRouter, Route, Routes,} from "react-router-dom";
 
 import Login from "./pages/loginPage";
 import Home from "./pages/studenthomePage"
+import AddDynamicInput from "./pages/dynamicForm";
 function App() {
   return (
     <>
@@ -11,6 +12,7 @@ function App() {
         <Routes>
             <Route path="login" element={<Login />} />
             <Route path="studentHome" element={<Home />} />
+            <Route path="form" element={<AddDynamicInput />} />
         </Routes>
       </BrowserRouter>
 
