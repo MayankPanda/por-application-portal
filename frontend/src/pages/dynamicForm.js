@@ -170,6 +170,7 @@ function AddDynamicInput() {
           {field.type !== "text" && <h3>{field.title}</h3>}
           {field.type === "text" ? (
             <>
+            <h3>{field.title}</h3>
               <input type="text" placeholder={field.title} />
               <button onClick={() => handleDelete(i)}>x</button>
             </>
