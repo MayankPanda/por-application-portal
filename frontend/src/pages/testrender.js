@@ -16,7 +16,7 @@ function Render() {
       title: "Radio Series 1 ",
       Data: {
         values: ["Option 1", "Option 2", "Option 3", "Option 4"],
-        selectedIndices: [],
+        selectedIndices: [2],
       },
     },
     {
@@ -24,7 +24,7 @@ function Render() {
       title: "Checkbox Series",
       Data: {
         values: ["Option A", "Option B", "Option C"],
-        selectedIndices: [],
+        selectedIndices: [1,2],
       },
     },
   ];
