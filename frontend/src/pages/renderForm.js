@@ -6,7 +6,7 @@ function DisplayArbitraryForm({ formData }) {
       case 0: // Textbox
         return (
           <div key={index}>
-            <label>{field.title}</label>
+            <h3>{field.title}</h3>
             <input type="text" value={field.Data.text} />
           </div>
         );
