@@ -1,7 +1,10 @@
-export class ResponseClass{
-    constructor(status, code, data) {
-        this.status = status;
-        this.code = code;
+class ResponseClass{
+    constructor(statusCode, message, data, error) {
+        this.statusCode = statusCode;
+        this.message = message;
         this.data = data;
+        this.error = error;
     }
 }
+
+module.exports = ResponseClass;

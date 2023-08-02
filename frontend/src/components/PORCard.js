@@ -3,23 +3,17 @@ import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/ico
 import {Avatar, Card} from "antd";
 const {Meta} = Card;
 
-const PORCard = (props) => {
-    console.log(props.img)
+const PORCard = ({title, applicationObject, type, userObject, props}) => {
+
+
     return (
         <React.Fragment>
             <Card
                 style={{
                     width: 300,
                 }}
-                cover={
-                    <img
-                        alt="example"
-                        src={props.img.toString()}
-                        height={50}
-                    />
-                }
                 actions={[
-                    <SettingOutlined key="setting" />,
+                    <a href={"/form"}><SettingOutlined key="setting" /></a>,
                     <EditOutlined key="edit" />,
                     <EllipsisOutlined key="ellipsis" />
                 ]}

@@ -2,17 +2,14 @@ const env = require("dotenv");
 const express = require("express");
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
+
 const loginRoute = require("./routes/loginRoutes");
+const applicationRoutes = require("./routes/application.routes");
+const instituteBodyRoutes = require("./routes/instituteBody.routes");
+
 require('dotenv').config();
-const mongoose = require('mongoose');
+const mongoose = require('./utils/dbConnSetup');
 const CONNECTION_STRING = process.env.CONNECTION_STRING;
-mongoose.connect(CONNECTION_STRING,
-    {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    })
-    .then(() => console.log("MongoDB successfully connected"))
-    .catch((err) => console.error(err));
 
 const PORT = process.env.APP_PORT;
 const app = express();
@@ -28,7 +25,7 @@ app.listen(PORT, (error) => {
 
 app.use(
     cors({
-        origin: [`https://localhost:${PORT}`],
+        origin: "*",
         methods: ["GET", "POST", "PUT", "DELETE"],
         credentials: true,
     })
@@ -36,5 +33,7 @@ app.use(
 
 app.use(express.json());
 app.use(cookieParser());
-app.use("/", loginRoute);
 
+app.use("/", loginRoute);
+app.use("/api", applicationRoutes);
+app.use("/api", instituteBodyRoutes);
