@@ -1,4 +1,5 @@
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 const dbModels = require("../utils/setupSchemas");
 const ResponseClass = require("../utils/ResponseClass");
@@ -61,6 +62,10 @@ const login = async (req, res) => {
                 resObj.error = false;
                 resObj.statusCode = 200;
                 resObj.message = "User logged in successfully";
+
+                const token = jwt.sign({userId: existingUser._id}, process.env.TOKEN_KEY);
+
+                resObj.data = token;
 
                 res.status(resObj.statusCode).json(resObj);
             } else {

@@ -15,7 +15,6 @@ function App() {
             <Route path="form" element={<AddDynamicInput />} />
         </Routes>
       </BrowserRouter>
-
     </>
   );
 }

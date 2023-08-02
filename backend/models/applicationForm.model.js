@@ -28,6 +28,7 @@ const applicationFormSchema = new Schema({
     },
     status: {
         type: String,
+        default: "Incomplete",
     },
     textBoxData: {
         type: [{
