@@ -5,6 +5,8 @@ function AddDynamicInput() {
   const [title, setTitle] = useState("Radios");
   const [multiTitle, setMultiTitle] = useState("Checkboxes");
   const [textInputTitle, setTextInputTitle] = useState("");
+  const [formTitle, setFormTitle] = useState(""); // Form Title
+  const [formDescription, setFormDescription] = useState(""); // Form Description
   const [options, setOptions] = useState("");
   const [showTitleField, setShowTitleField] = useState(false);
   const [showMultiTitleField, setShowMultiTitleField] = useState(false);
@@ -109,6 +111,7 @@ function AddDynamicInput() {
       };
       return data;
     });
+    console.log(finalFormData);
     e.preventDefault();
     try {
       const url = "http://localhost:5000/api/applications/saveNewForm";
@@ -150,6 +153,22 @@ function AddDynamicInput() {
 
   return (
     <div>
+      <div>
+        <label>Form Title</label>
+        <input
+          type="text"
+          value={formTitle}
+          onChange={(e) => setFormTitle(e.target.value)}
+        />
+      </div>
+      <div>
+        <label>Form Description</label>
+        <input
+          type="text"
+          value={formDescription}
+          onChange={(e) => setFormDescription(e.target.value)}
+        />
+      </div>
       {showTitleField && (
         <>
           <input
