@@ -6,6 +6,7 @@ import Login from "./pages/loginPage";
 import Home from "./pages/studenthomePage"
 import AddDynamicInput from "./pages/dynamicForm";
 import Render from './pages/testrender';
+import DisplayForm from './pages/displayForm';
 function App() {
   return (
     <>
@@ -15,6 +16,7 @@ function App() {
             <Route path="studentHome" element={<Home />} />
             <Route path="form" element={<AddDynamicInput />} />
             <Route path="render" element={<Render />} />
+            <Route path="fill" element={<DisplayForm />} />
         </Routes>
       </BrowserRouter>
     </>
