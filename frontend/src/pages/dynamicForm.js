@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import axios from "axios";
 function AddDynamicInput() {
   const [fields, setFields] = useState([]);
   const [title, setTitle] = useState("Radios");
@@ -96,7 +96,7 @@ function AddDynamicInput() {
     );
   };
 
-  const handleFinaliseForm = () => {
+  const handleFinaliseForm = async(e) => {
     const finalFormData = fields.map((field) => {
       const data = {
         type: field.type === "text" ? 0 : field.type === "radio" ? 1 : 2,
@@ -109,6 +109,42 @@ function AddDynamicInput() {
       };
       return data;
     });
+    e.preventDefault();
+    try {
+      const url = "http://localhost:5000/api/applications/saveNewForm";
+      const data={
+        "userIdJwt":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGM5MzljYzU4OWNlNzZmODRlYWI1ZDQiLCJpYXQiOjE2OTA5NzA0Mjh9.2Jd6lhxY6Cf33SHWsXCowi2Bt_UpXh9oKoHJR72DHpM",
+        "formName":"Example form 22",
+        "formDesc":"Form axios creation api",
+        "formData":[
+            {
+                "Data":{
+                    "text":"",
+                    "values":["Options1", "Options2","Options3"],
+                    "selectedIndices":[]
+                },
+                "title":"Example Radio Buttons",
+                "type":"1"
+            },
+            {
+                "Data":{
+                    "text":"",
+                    "values":[],
+                    "selectedIndices":[]
+                },
+                "title":"Example Text Box",
+                "type":"0"
+            }
+        ]
+    };
+      const { data: res } = await axios.post(url, data);
+      console.log(res.message);
+    } catch (error) {
+      // if (error.response && error.response.status >= 400 && error.response.status <= 500) {
+      //   setError(error.response.data.message);
+      // }
+      console.log(error);
+    }
     console.log(finalFormData);
   };
 
