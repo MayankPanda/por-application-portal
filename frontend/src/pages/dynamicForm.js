@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
+
+const token='{TOKEN}';
+
 function AddDynamicInput() {
   const [fields, setFields] = useState([]);
   const [title, setTitle] = useState("Radios");
@@ -111,6 +114,7 @@ function AddDynamicInput() {
       };
       return data;
     });
+    console.log("Cookie",document.cookie);
     console.log(finalFormData);
     e.preventDefault();
     try {
@@ -140,7 +144,11 @@ function AddDynamicInput() {
             }
         ]
     };
-      const { data: res } = await axios.post(url, data);
+      const { data: res } = await axios.post(url, data,{
+        headers:{
+            Authorization:`Bearer ${token}`  
+        }
+      });
       console.log(res.message);
     } catch (error) {
       // if (error.response && error.response.status >= 400 && error.response.status <= 500) {
